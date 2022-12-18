@@ -8,7 +8,6 @@ const TodoItem: React.FC<{ text: string; onRemoveTodo: () => void }> = (props) =
             <li className={classes.item} onClick={props.onRemoveTodo}>
                 {props.text}
             </li>
-            <hr />
         </React.Fragment>
     )
 }
