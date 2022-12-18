@@ -5,3 +5,16 @@
     border-radius: 8px;
     background-color: white;
   }
+
+  .card span {
+    font-size: 12px;
+    color: #0000EE;
+  }
+
+  .card span:hover {
+    cursor: pointer;
+  }
+
+  .card.todoitem {
+    font-size: 25px;
+  }

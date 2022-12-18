@@ -11,7 +11,7 @@ const Todos: React.FC = () => {
     return (
         <div className={classes.todos}>
             {todosCtx.items.map((item) => (
-                <TodoItem key={item.id} text={item.text} onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)} />
+                <TodoItem key={item.id} text={item.text} dueDate={item.dueDate} moreDetails={item.moreDetails} onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)} />
             ))}
         </div>
     );
