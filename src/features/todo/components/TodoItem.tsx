@@ -1,13 +1,13 @@
 import React from 'react';
 
-import classes from '../styles/TodoItem.module.css';
+import Card from "../../../components/ui/Card";
 
 const TodoItem: React.FC<{ text: string; onRemoveTodo: () => void }> = (props) => {
     return (
         <React.Fragment>
-            <li className={classes.item} onClick={props.onRemoveTodo}>
+            <Card onClick={props.onRemoveTodo}>
                 {props.text}
-            </li>
+            </Card>
         </React.Fragment>
     )
 }
