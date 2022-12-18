@@ -1,0 +1,74 @@
+[
+    {
+       "id": 1, 
+       "text": "Clean the kitchen", 
+       "moredetails": "Make sure it's spotless!",
+       "expiredate": "02/15/2022",
+       "complete": false,
+       "subtasks": [
+            {
+                "id": 1,
+                "text": "Wipe countertops"
+            },
+            {
+                "id": 2,
+                "text": "Wipe table"
+            },
+            {
+                "id": 3,
+                "text": "Do the dang dishes already!"
+            }
+       ]
+    },
+    {
+       "id": 2, 
+       "text": "Clean the Bedroom",
+       "moredetails": "Don't procrastenate on this. Actually make your bed....",
+       "expiredate": "06/05/2023",
+       "complete": false,
+       "subtasks": [
+            {
+                "id": 1,
+                "text": "Make your bed."
+            },
+            {
+                "id": 2,
+                "text": "Vaccuum"
+            }
+       ]
+    },
+    {
+       "id": 3, 
+       "text": "Clean the Bathroom", 
+       "moredetails": "Get that nasty hair from the base of the toilet!",
+       "expiredate": "10/27/1900",
+       "complete": false,
+       "subtasks": [
+            {
+                "id": 1,
+                "text": "Wipe countertops"
+            },
+            {
+                "id": 2,
+                "text": "Clean the sink"
+            },
+            {
+                "id": 3,
+                "text": "Unclog the toilet!!"
+            }
+       ]
+    },
+    {
+       "id": 4, 
+       "text": "Clean the Living Room", 
+       "moredetails": "Yuck, the cats puked in here again :(",
+       "expiredate": "03/18/1992",
+       "complete": false,
+       "subtasks": [
+            {
+                "id": 1,
+                "text": "Just relax, you did this yesterday."
+            }
+       ]
+    }
+ ]
