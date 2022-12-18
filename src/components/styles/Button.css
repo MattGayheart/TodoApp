@@ -1,0 +1,31 @@
+.btn.btn-primary {
+    font: inherit;
+    background-color: #1d344a;
+    border: 1px solid #1d344a;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn.btn-primary:hover,
+  .btn.btn-primary:active {
+    background-color: #234d6f;
+    border-color: #234d6f;
+  }
+
+  .btn.btn-danger {
+    font: inherit;
+    background-color: #F32013;
+    border: 1px solid #F32013;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn.btn-danger:hover,
+  .btn.btn-danger:active {
+    background-color: #fd453b;
+    border-color: #fd453b;
+  }

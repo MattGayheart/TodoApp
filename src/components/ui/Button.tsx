@@ -1,9 +1,9 @@
 import React from "react";
-import classes from "../styles/Button.module.css";
+import "../styles/Button.css";
 
-const Button: React.FC<{ onClick?: React.MouseEventHandler<HTMLButtonElement> }> = (props) => {
+const Button: React.FC<{ onClick?: React.MouseEventHandler<HTMLButtonElement>, className?: string }> = (props) => {
     return (
-        <button className={classes.button} onClick={props.onClick}>
+        <button className={props.className} onClick={props.onClick}>
             {props.children}
         </button>
     );
