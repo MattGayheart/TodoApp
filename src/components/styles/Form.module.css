@@ -1,7 +1,6 @@
 .form {
     width: 40rem;
     margin: 2rem auto;
-    
   }
   
   .form label {
@@ -12,14 +11,14 @@
   
   .form input {
     display: block;
-    width: 100%;
+    width: 50%;
     font: inherit;
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 0.5rem;
     border-radius: 4px;
     background-color: #ffffff;
     border: none;
-    border-bottom: 2px solid #494844;
+    border-bottom: 2px solid #999999;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     margin-bottom: 0.5rem;

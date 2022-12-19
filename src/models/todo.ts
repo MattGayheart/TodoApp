@@ -1,5 +1,3 @@
-import SubTodo from "./subtodo";
-
 class Todo {
     id: string;
     text: string;

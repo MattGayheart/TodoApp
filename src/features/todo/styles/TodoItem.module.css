@@ -1,0 +1,25 @@
+.flex {
+  display: flex;
+  justify-content:space-between;
+}
+
+.pastdue {
+  font-size: 14px;
+  font-weight: bold;
+  color:red;
+}
+
+.tododate {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(148, 148, 148);
+}
+
+.todoitem {
+  font-size: 18px;
+  color: rgb(26, 26, 26);
+}
+
+.icon:hover{
+  cursor: pointer;
+}

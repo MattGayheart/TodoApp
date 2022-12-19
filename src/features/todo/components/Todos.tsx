@@ -7,11 +7,13 @@ import TodoItem from "./TodoItem";
 
 const Todos: React.FC = () => {
     const todosCtx = useContext(TodosContext);
+    const tasks = todosCtx.items;
+    let subTasks = todosCtx.subItems;
 
     return (
         <div className={classes.todos}>
-            {todosCtx.items.map((item) => (
-                <TodoItem key={item.id} text={item.text} dueDate={item.dueDate} moreDetails={item.moreDetails} onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)} />
+            {tasks.map((item) => (
+                <TodoItem onRemoveSubTodo={todosCtx.removeSubTodo} key={item.id} id={item.id} text={item.text} dueDate={item.dueDate} subItem={subTasks} moreDetails={item.moreDetails} onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)} />
             ))}
         </div>
     );
