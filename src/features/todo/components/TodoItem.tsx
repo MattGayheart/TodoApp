@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { TodosContext } from "../../../context/todos-context";
 import Card from "../../../components/ui/Card";
 import TodoDetails from "./TodoDetails";
 import SubTodo from "../../../models/subtodo";
@@ -11,10 +12,12 @@ const TodoItem: React.FC<{
   moreDetails: string;
   dueDate: string;
   subItem: SubTodo[];
+  isComplete: boolean;
   onRemoveSubTodo: (id: string) => void;
   onRemoveTodo: () => void;
 }> = (props) => {
   const [showModal, setShowModal] = useState(false);
+  const todosCtx = useContext(TodosContext);
 
   const onShowModalHandler = () => {
     setShowModal(true);
@@ -32,6 +35,10 @@ const TodoItem: React.FC<{
     return item.completed === true;
   });
 
+  const onIsCompleteChange = () => {
+    todosCtx.updateTodo(props.id,'isComplete', `${!props.isComplete}`);
+  }
+
   const  isDateBeforeToday = (date: String) => {
     return new Date(date.toString()) < new Date(new Date().toDateString());
   }
@@ -42,7 +49,7 @@ const TodoItem: React.FC<{
         <div className={classes.flex}>
           <div>
             <div className={`${isDateBeforeToday(props.dueDate) ? classes.pastdue : classes.tododate}`}>
-              {props.dueDate}{" "}
+              Due Date: {props.dueDate}{" "}
               <span>
                 (
                 {itemSubTasks.length === 1
@@ -52,7 +59,7 @@ const TodoItem: React.FC<{
               </span>
             </div>
             <br />
-            <input style={{ verticalAlign: "center" }} type="checkbox" />{" "}
+            <input style={{ verticalAlign: "center" }} onChange={onIsCompleteChange} checked={props.isComplete} type="checkbox" />{" "}
             <span className={classes.todoitem}>{props.text}</span>
           </div>
           <div className={classes.flex}>
@@ -74,6 +81,7 @@ const TodoItem: React.FC<{
       {showModal && (
         <TodoDetails
           onRemoveSubTodo={props.onRemoveSubTodo}
+          parentIsComplete={props.isComplete}
           dueDate={props.dueDate}
           parentid={props.id}
           task={props.text}

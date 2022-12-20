@@ -1,17 +1,17 @@
-import { useContext, useRef } from "react";
-import { TodosContext } from "../../../context/todos-context";
+import { useRef } from "react";
+
 import Card from "../../../components/ui/Card";
 
-const MoreDetails: React.FC<{ task: string; moreDetails: string, id: string, dueDate: string }> = (
+const MoreDetails: React.FC<{ task: string; moreDetails: string; dueDate: string; onDetailBlurHandler: (value: string) => void; onDateChangeHandler: (value: Date) => void; }> = (
   props
 ) => {
-  const todosCtx = useContext(TodosContext);
+  
   const todoDetailInputRef = useRef<HTMLTextAreaElement>(null);
   const todoDateInputRef = useRef<HTMLInputElement>(null);
 
   const onDetailBlurHandler = () => {
     const enteredText = todoDetailInputRef.current?.value;
-    todosCtx.updateTodo(props.id, 'moreDetails', enteredText ?? '');
+    props.onDetailBlurHandler(enteredText ?? '');
   };
 
   const onDateChangeHandler = () => {
@@ -19,7 +19,7 @@ const MoreDetails: React.FC<{ task: string; moreDetails: string, id: string, due
     console.log("old " + enteredDate)
     enteredDate = new Date(enteredDate!);
     console.log("new " + enteredDate);
-    todosCtx.updateTodo(props.id, 'dueDate', enteredDate.toLocaleDateString() ?? new Date());
+    props.onDateChangeHandler(enteredDate);
   }
 
   return (

@@ -13,7 +13,7 @@ const Todos: React.FC = () => {
     return (
         <div className={classes.todos}>
             {tasks.map((item) => (
-                <TodoItem onRemoveSubTodo={todosCtx.removeSubTodo} key={item.id} id={item.id} text={item.text} dueDate={item.dueDate} subItem={subTasks} moreDetails={item.moreDetails} onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)} />
+                <TodoItem onRemoveSubTodo={todosCtx.removeSubTodo} key={item.id} id={item.id} isComplete={item.completed} text={item.text} dueDate={item.dueDate} subItem={subTasks} moreDetails={item.moreDetails} onRemoveTodo={todosCtx.removeTodo.bind(null, item.id)} />
             ))}
         </div>
     );
