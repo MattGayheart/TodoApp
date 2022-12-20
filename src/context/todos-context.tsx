@@ -7,10 +7,10 @@ type TodosContextObj = {
   items: Todo[];
   subItems: SubTodo[];
   addTodo: (text: string) => void;
-  updateTodo: (id: string, type: string, value: string) => void;
+  addSubTodo: (text: string, id: string) => void;
+  updateTodo: (id: string, type: string, value: string, referrer: string) => void;
   updateSubTodo: (id: string, type: string, value: boolean) => void;
   removeTodo: (id: string) => void;
-  addSubTodo: (text: string, id: string) => void;
   removeSubTodo: (id: string) => void;
 };
 
@@ -18,10 +18,10 @@ export const TodosContext = React.createContext<TodosContextObj>({
   items: [],
   subItems: [],
   addTodo: () => {},
-  updateTodo: (id: string, type: string, value: string) => {},
+  addSubTodo: () => {},
+  updateTodo: (id: string, type: string, value: string, referrer: string) => {},
   updateSubTodo: (id: string, type: string, value: boolean) => {},
   removeTodo: (id: string) => {},
-  addSubTodo: () => {},
   removeSubTodo: (id: string) => {},
 });
 
@@ -37,7 +37,7 @@ const TodosContextProvider: React.FC = (props) => {
     });
   };
 
-  const updateTodoDetails = (id: string, type: string, value: string) => {
+  const updateTodoDetails = (id: string, type: string, value: string, referrer: string) => {
     const newTodo = [...todos];
 
     for(let i = 0; i < newTodo.length; i++) {
@@ -47,8 +47,10 @@ const TodosContextProvider: React.FC = (props) => {
           break;
         }
         if(type === 'dueDate') {
-          const newDate = new Date(value);
-          newTodo[i].dueDate = newDate.toLocaleDateString();
+          const newDate = new Date(value).toISOString();
+           let getDate = newDate.slice(0,10).split('-'); //create an array
+          var date = getDate[1] +'/'+ getDate[2] +'/'+ getDate[0];
+          newTodo[i].dueDate = date;
           break;
         }
         if(type === 'isComplete') {
@@ -65,7 +67,7 @@ const TodosContextProvider: React.FC = (props) => {
           updateSubTodo(newSubTodo[i].id, type, true);
         }
       }
-    } else if (type === 'isComplete' && value == 'false') {
+    } else if (type === 'isComplete' && value == 'false' && referrer === 'task') {
       
       if(window.confirm('Would you like to uncheck all sub todos too?')) {
         const newSubtodo = [...subTodos];

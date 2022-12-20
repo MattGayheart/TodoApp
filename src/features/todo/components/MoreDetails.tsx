@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import Card from "../../../components/ui/Card";
 
-const MoreDetails: React.FC<{ task: string; moreDetails: string; dueDate: string; onDetailBlurHandler: (value: string) => void; onDateChangeHandler: (value: Date) => void; }> = (
+const MoreDetails: React.FC<{ task: string; moreDetails: string; dueDate: string; onDetailBlurHandler: (value: string) => void; onDateChangeHandler: (value: string) => void; }> = (
   props
 ) => {
   
@@ -15,11 +15,8 @@ const MoreDetails: React.FC<{ task: string; moreDetails: string; dueDate: string
   };
 
   const onDateChangeHandler = () => {
-    let enteredDate = todoDateInputRef.current?.valueAsDate;
-    console.log("old " + enteredDate)
-    enteredDate = new Date(enteredDate!);
-    console.log("new " + enteredDate);
-    props.onDateChangeHandler(enteredDate);
+    let enteredDate = todoDateInputRef.current?.value;
+    props.onDateChangeHandler(enteredDate!);
   }
 
   return (

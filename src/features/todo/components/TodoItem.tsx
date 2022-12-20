@@ -36,7 +36,7 @@ const TodoItem: React.FC<{
   });
 
   const onIsCompleteChange = () => {
-    todosCtx.updateTodo(props.id,'isComplete', `${!props.isComplete}`);
+    todosCtx.updateTodo(props.id,'isComplete', `${!props.isComplete}`, 'task');
   }
 
   const  isDateBeforeToday = (date: String) => {

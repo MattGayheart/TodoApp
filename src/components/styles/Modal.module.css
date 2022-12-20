@@ -23,6 +23,10 @@
     overflow-y: auto;
     overflow-x: hidden;
   }
+
+  .closebtn :hover {
+    cursor: pointer;
+  }
   
   @media (min-width: 768px) {
     .modal {

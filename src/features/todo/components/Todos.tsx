@@ -8,7 +8,7 @@ import TodoItem from "./TodoItem";
 const Todos: React.FC = () => {
     const todosCtx = useContext(TodosContext);
     const tasks = todosCtx.items;
-    let subTasks = todosCtx.subItems;
+    const subTasks = todosCtx.subItems;
 
     return (
         <div className={classes.todos}>

@@ -20,15 +20,12 @@ const TodoDetails: React.FC<{
 
   const onDetailBlurHandler = (value: string) => {
     const enteredText = value;
-    todosCtx.updateTodo(props.parentid, 'moreDetails', enteredText ?? '');
+    todosCtx.updateTodo(props.parentid, 'moreDetails', enteredText ?? '', 'subtask');
   };
 
-  const onDateChangeHandler = (value: Date) => {
+  const onDateChangeHandler = (value: string) => {
     let enteredDate = value;
-    console.log("old " + enteredDate)
-    enteredDate = new Date(enteredDate!);
-    console.log("new " + enteredDate);
-    todosCtx.updateTodo(props.parentid, 'dueDate', enteredDate.toLocaleDateString() ?? new Date());
+    todosCtx.updateTodo(props.parentid, 'dueDate', enteredDate ?? new Date().toISOString(), 'subtask');
   };
 
   const onCompletedChange = (value: boolean, id: string) => {
@@ -40,7 +37,7 @@ const TodoDetails: React.FC<{
         break;
       }
     }
-    todosCtx.updateTodo(props.parentid, 'isComplete', `${canCheckParent}`);
+    todosCtx.updateTodo(props.parentid, 'isComplete', `${canCheckParent}`, 'subtask');
   };
 
   return (
