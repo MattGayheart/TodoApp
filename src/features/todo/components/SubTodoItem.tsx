@@ -6,17 +6,16 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 
 const SubTodoItem: React.FC<{
   subTasks: SubTodo[];
-  parentid: string;
+  parentid: number;
   parentIsComplete: boolean;
-  onCompltedChange: (value: boolean, id: string) => void;
-  onRemoveSubTodo: (id: string) => void;
+  onCompltedChange: (value: boolean, id: number) => void;
+  onRemoveSubTodo: (id: number) => void;
 }> = (props) => {
-
-  const onRemoveSubTodoHandler = (id: string) => {
+  const onRemoveSubTodoHandler = (id: number) => {
     props.onRemoveSubTodo(id);
   };
 
-  const onCompletedChange = (value: boolean, id: string) => {
+  const onCompletedChange = (value: boolean, id: number) => {
     const isCompleted = value;
     props.onCompltedChange(isCompleted!, id);
   };
@@ -29,7 +28,14 @@ const SubTodoItem: React.FC<{
         <Card key={item.id}>
           <div className={classes.flex}>
             <div>
-              <input style={{ verticalAlign: "center" }} defaultChecked={item.completed} onChange={(e) => {onCompletedChange(e.target.checked,item.id)}} type="checkbox" />{" "}
+              <input
+                style={{ verticalAlign: "center" }}
+                defaultChecked={item.completed}
+                onChange={(e) => {
+                  onCompletedChange(e.target.checked, item.id);
+                }}
+                type="checkbox"
+              />{" "}
               <span>{item.text}</span>
             </div>
 

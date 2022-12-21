@@ -2,27 +2,32 @@ import { useRef } from "react";
 
 import Card from "../../../components/ui/Card";
 
-const MoreDetails: React.FC<{ task: string; moreDetails: string; dueDate: string; onDetailBlurHandler: (value: string) => void; onDateChangeHandler: (value: string) => void; }> = (
-  props
-) => {
-  
+const MoreDetails: React.FC<{
+  task: string;
+  moreDetails: string;
+  dueDate: string;
+  onDetailBlurHandler: (value: string) => void;
+  onDateChangeHandler: (value: string) => void;
+}> = (props) => {
   const todoDetailInputRef = useRef<HTMLTextAreaElement>(null);
   const todoDateInputRef = useRef<HTMLInputElement>(null);
 
   const onDetailBlurHandler = () => {
     const enteredText = todoDetailInputRef.current?.value;
-    props.onDetailBlurHandler(enteredText ?? '');
+    props.onDetailBlurHandler(enteredText ?? "");
   };
 
   const onDateChangeHandler = () => {
     let enteredDate = todoDateInputRef.current?.value;
     props.onDateChangeHandler(enteredDate!);
-  }
+  };
 
   return (
     <Card>
       <h3>{props.task}</h3>
-      <label htmlFor="detailInput"><b>More Details:</b></label>
+      <label htmlFor="detailInput">
+        <b>More Details:</b>
+      </label>
       <textarea
         id="detailInput"
         style={{ width: "100%", resize: "vertical" }}
@@ -33,9 +38,17 @@ const MoreDetails: React.FC<{ task: string; moreDetails: string; dueDate: string
         onBlur={onDetailBlurHandler}
         ref={todoDetailInputRef}
       />
-      <label htmlFor="dateInput"><b>Due Date:</b></label>
-      <br/>
-      <input ref={todoDateInputRef} defaultValue={new Date(props.dueDate).toISOString().substring(0,10)} id='dateInput' type='date' onChange={onDateChangeHandler} />
+      <label htmlFor="dateInput">
+        <b>Due Date:</b>
+      </label>
+      <br />
+      <input
+        ref={todoDateInputRef}
+        defaultValue={new Date(props.dueDate).toISOString().substring(0, 10)}
+        id="dateInput"
+        type="date"
+        onChange={onDateChangeHandler}
+      />
     </Card>
   );
 };

@@ -1,15 +1,15 @@
 class SubTodo {
-    id: string;
-    text: string;
-    parentID: string;
-    completed: boolean;
+  id: number;
+  text: string;
+  parentID: number;
+  completed: boolean;
 
-    constructor(todoText: string, parentId:string) {
-        this.text = todoText;
-        this.id = new Date().toISOString();
-        this.parentID = parentId;
-        this.completed = false;
-    }
+  constructor(todoText: string, parentId: number) {
+    this.text = todoText;
+    this.id = 0;
+    this.parentID = parentId;
+    this.completed = false;
+  }
 }
 
 export default SubTodo;
