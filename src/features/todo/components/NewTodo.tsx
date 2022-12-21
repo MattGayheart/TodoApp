@@ -5,6 +5,7 @@ import { TodosContext } from "../../../context/todos-context";
 import Button from "../../../components/ui/Button";
 import Form from "../../../components/ui/Form";
 
+//Form that contains label, input, and button to submit new todo
 const NewTodo: React.FC = () => {
     const todosCtx = useContext(TodosContext);
     const todoTextInputRef = useRef<HTMLInputElement>(null);
@@ -18,6 +19,7 @@ const NewTodo: React.FC = () => {
             return;
         }
 
+         //Passes arguments to Context to update todos state
         todosCtx.addTodo(enteredText);
     }
 

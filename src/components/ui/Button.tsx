@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Button.css";
 
+//Creates reusable styled button to stay consistent
 const Button: React.FC<{ onClick?: React.MouseEventHandler<HTMLButtonElement>, className?: string, width?: string, height?: string }> = (props) => {
     return (
         <button className={props.className} onClick={props.onClick} style={{width:props.width, height:props.height}}>

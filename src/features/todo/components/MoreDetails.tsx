@@ -9,19 +9,23 @@ const MoreDetails: React.FC<{
   onDetailBlurHandler: (value: string) => void;
   onDateChangeHandler: (value: string) => void;
 }> = (props) => {
+  //Grabs input values from more details and date fields
   const todoDetailInputRef = useRef<HTMLTextAreaElement>(null);
   const todoDateInputRef = useRef<HTMLInputElement>(null);
 
+  //Passes function up to update todo.moreDetails
   const onDetailBlurHandler = () => {
     const enteredText = todoDetailInputRef.current?.value;
     props.onDetailBlurHandler(enteredText ?? "");
   };
 
+  //Passes function up to update todo.dueDate
   const onDateChangeHandler = () => {
     let enteredDate = todoDateInputRef.current?.value;
     props.onDateChangeHandler(enteredDate!);
   };
 
+  //JSX contains card with More Details and Date section
   return (
     <Card>
       <h3>{props.task}</h3>

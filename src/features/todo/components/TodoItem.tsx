@@ -6,6 +6,7 @@ import SubTodo from "../../../models/subtodo";
 import classes from "../styles/TodoItem.module.css";
 import { RiEditBoxLine, RiDeleteBin7Line } from "react-icons/ri";
 
+//Component contains each todo item
 const TodoItem: React.FC<{
   id: number;
   text: string;
@@ -16,7 +17,9 @@ const TodoItem: React.FC<{
   onRemoveSubTodo: (id: number) => void;
   onRemoveTodo: () => void;
 }> = (props) => {
+  //Controls modal to drill into a todo
   const [showModal, setShowModal] = useState(false);
+  //Creates context to update state
   const todosCtx = useContext(TodosContext);
 
   const onShowModalHandler = () => {
@@ -27,18 +30,22 @@ const TodoItem: React.FC<{
     setShowModal(false);
   };
 
+  //Gets id that matches parent and child tasks
   const itemSubTasks = props.subItem.filter((item) => {
     return item.parentID === props.id;
   });
 
+  //Grabs a count of completed subtasks
   const completedTaskCount = itemSubTasks.filter((item) => {
     return item.completed === true;
   });
 
+  //Updates todo complete state and completes all subtodos
   const onIsCompleteChange = () => {
     todosCtx.updateTodo(props.id, "isComplete", `${!props.isComplete}`, "task");
   };
 
+  //Checks if due date  has passed for a task
   const isDateBeforeToday = (date: String) => {
     return new Date(date.toString()) < new Date(new Date().toDateString());
   };

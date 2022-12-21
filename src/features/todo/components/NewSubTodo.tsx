@@ -5,6 +5,7 @@ import { TodosContext } from "../../../context/todos-context";
 import Button from "../../../components/ui/Button";
 import Form from "../../../components/ui/Form";
 
+//Form that contains label, input, and button to submit new SubTodo
 const NewSubTodo: React.FC<{ parentid: number }> = (props) => {
   const todosCtx = useContext(TodosContext);
   const todoTextInputRef = useRef<HTMLInputElement>(null);
@@ -18,6 +19,7 @@ const NewSubTodo: React.FC<{ parentid: number }> = (props) => {
       return;
     }
 
+    //Passes arguments to Context to update subtodos state
     todosCtx.addSubTodo(enteredText, props.parentid);
   };
 

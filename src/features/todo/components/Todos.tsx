@@ -5,6 +5,7 @@ import { TodosContext } from "../../../context/todos-context";
 
 import TodoItem from "./TodoItem";
 
+//Component that maps all todos into a TodoItem component
 const Todos: React.FC = () => {
   const todosCtx = useContext(TodosContext);
   const tasks = todosCtx.items;

@@ -5,6 +5,7 @@ import SubTodo from "../../../models/subtodo";
 import MoreDetails from "./MoreDetails";
 import SubTodoItem from "./SubTodoItem";
 
+//Modal that contains Todo details section and subtodo items
 const TodoDetails: React.FC<{
   parentid: number;
   parentIsComplete: boolean;
@@ -15,8 +16,10 @@ const TodoDetails: React.FC<{
   onRemoveSubTodo: (id: number) => void;
   onHideModal: () => void;
 }> = (props) => {
+  //Creates context to update state later
   const todosCtx = useContext(TodosContext);
 
+  //Updates todos.moreDetails onBlur event
   const onDetailBlurHandler = (value: string) => {
     const enteredText = value;
     todosCtx.updateTodo(
@@ -27,6 +30,7 @@ const TodoDetails: React.FC<{
     );
   };
 
+  //Updates todos.duedate onChange event
   const onDateChangeHandler = (value: string) => {
     let enteredDate = value;
     todosCtx.updateTodo(
@@ -37,6 +41,7 @@ const TodoDetails: React.FC<{
     );
   };
 
+  //Updates state when a checkbox is checked on subtodos
   const onCompletedChange = (value: boolean, id: number) => {
     todosCtx.updateSubTodo(id, "isComplete", value);
     let canCheckParent = true;

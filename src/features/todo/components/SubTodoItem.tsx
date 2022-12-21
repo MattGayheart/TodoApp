@@ -4,6 +4,7 @@ import NewSubTodo from "./NewSubTodo";
 import classes from "../styles/SubTodoItem.module.css";
 import { RiDeleteBin7Line } from "react-icons/ri";
 
+//Component to return each subtodo item in the list
 const SubTodoItem: React.FC<{
   subTasks: SubTodo[];
   parentid: number;
@@ -11,10 +12,13 @@ const SubTodoItem: React.FC<{
   onCompltedChange: (value: boolean, id: number) => void;
   onRemoveSubTodo: (id: number) => void;
 }> = (props) => {
+
+  //Passes function up to delete subtodo and update state
   const onRemoveSubTodoHandler = (id: number) => {
     props.onRemoveSubTodo(id);
   };
 
+  //Passes function up to update subtodo completed state
   const onCompletedChange = (value: boolean, id: number) => {
     const isCompleted = value;
     props.onCompltedChange(isCompleted!, id);

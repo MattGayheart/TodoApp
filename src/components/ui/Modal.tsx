@@ -4,10 +4,13 @@ import classes from "../styles/Modal.module.css";
 import { RiCloseLine } from "react-icons/ri";
 import Button from "./Button";
 
+
+//Adds backdrop behind the modal to make it stand out
 const Backdrop: React.FC<{ onHideModal: () => void }> = (props) => {
   return <div className={classes.backdrop} onClick={props.onHideModal} />;
 };
 
+//Creates modal to store content in
 const ModalOverlay: React.FC<{ onHideModal: () => void }> = (props) => {
   return (
     <div className={classes.modal}>
@@ -31,6 +34,7 @@ const ModalOverlay: React.FC<{ onHideModal: () => void }> = (props) => {
 
 const portalElement = document.getElementById("overlays")!;
 
+// Combines backdrop and modal into one component. Creates portal to top of Index.html page so modal is positioned correctly
 const Modal: React.FC<{ onHideModal: () => void }> = (props) => {
   return (
     <React.Fragment>
